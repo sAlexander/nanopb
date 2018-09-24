@@ -14,6 +14,7 @@ config.log
 .sconf_temp
 tests/build
 julkaisu.txt
+bazel-*
 dist
 docs/*.html
 docs/generator_flow.png
