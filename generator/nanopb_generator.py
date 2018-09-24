@@ -31,8 +31,9 @@ except:
     raise
 
 try:
-    import proto.nanopb_pb2 as nanopb_pb2
-    import proto.plugin_pb2 as plugin_pb2
+    # TODO(spencera): Figure out why the old import was not working for bazel.
+    import nanopb_pb2 as nanopb_pb2
+    import plugin_pb2 as plugin_pb2
 except TypeError:
     sys.stderr.write('''
          ****************************************************************************
@@ -1782,7 +1783,5 @@ def main_plugin():
 
 if __name__ == '__main__':
     # Check if we are running as a plugin under protoc
-    if 'protoc-gen-' in sys.argv[0] or '--protoc-plugin' in sys.argv:
-        main_plugin()
-    else:
-        main_cli()
+    # TODO(spencera): Properly use the wrapper script for the generator.
+    main_plugin()
