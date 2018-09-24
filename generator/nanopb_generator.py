@@ -31,9 +31,8 @@ except:
     raise
 
 try:
-    # TODO(spencera): Figure out why the old import was not working for bazel.
-    import nanopb_pb2 as nanopb_pb2
-    import plugin_pb2 as plugin_pb2
+    from proto import nanopb_pb2
+    from proto import plugin_pb2
 except TypeError:
     sys.stderr.write('''
          ****************************************************************************
