@@ -9,5 +9,5 @@
 # path is already set up properly and there is no need to give
 # --plugin= on the command line.
 
-MYPATH=$(dirname "$0")
+MYPATH=$(dirname $(readlink -f "$0"))
 exec "$MYPATH/nanopb_generator.py" --protoc-plugin

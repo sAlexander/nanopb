@@ -24,11 +24,14 @@ cc_library(
   ],
 )
 
+sh_binary(
+    name = "protoc-gen-nanopb",
+    srcs = ["generator/protoc-gen-nanopb"],
+    data = [":nanopb_generator"]
+)
+
 py_binary(
     name = "nanopb_generator",
-    args = [
-        "--protoc-plugin",
-    ],
     srcs = [
         "generator/nanopb_generator.py",
     ],
